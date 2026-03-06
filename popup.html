@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trade Republic Exporter</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Export Trade Republic</h1>
+            <p class="subtitle">Export your transactions to CSV</p>
+        </header>
+
+        <div id="error-zone"   class="error   hidden"></div>
+        <div id="success-zone" class="success hidden"></div>
+        <!-- FIX #8: warning zone (scroll limit reached) -->
+        <div id="warning-zone" class="warning hidden"></div>
+
+        <form id="export-form">
+            <div class="form-group">
+                <label for="date-start">📅 Start date</label>
+                <input type="date" id="date-start" required>
+            </div>
+
+            <div class="form-group">
+                <label for="date-end">📅 End date</label>
+                <input type="date" id="date-end" required>
+            </div>
+
+            <div class="info-box">
+                <p>💡 <strong>Tip:</strong> The extension will automatically scroll the page to load all transactions for the selected period.</p>
+            </div>
+
+            <button type="submit" id="export-btn" class="btn-primary">
+                <span class="btn-text">🚀 Start export</span>
+                <span class="loader hidden"></span>
+            </button>
+        </form>
+
+        <div id="progress-zone" class="progress-info hidden">
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+            <p id="progress-text" class="progress-text">Loading...</p>
+        </div>
+
+        <footer>
+            <p class="footer-text">🔒 100% Secure - DOM scraping only</p>
+        </footer>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
